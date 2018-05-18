@@ -11,8 +11,7 @@ There is not need of API integration, you just have to send :
 
 ## Getting Started
 
-
-#### Html
+### Html
 ```html
 <script src="https://s3-eu-west-1.amazonaws.com/pledg-assets/pledg-card-integration/latest/plugin.min.js"></script>
 
@@ -27,7 +26,7 @@ There is not need of API integration, you just have to send :
 <button id="pledg-button">Pay with friends</div>
 ```
 
-#### Javascript
+### Javascript
 ```javascript
 var button = document.querySelector('#pledg-button')
 
@@ -68,7 +67,6 @@ As you can see settings are passed as the second argument of the `Pledg` class.
 
 Here is the full list of available settings:
 
-
 ### Required settings
 
 | name | required | type | details |
@@ -87,8 +85,6 @@ Here is the full list of available settings:
 | `subtitle` | no  | `string` | Subtitle of the purchase |
 | `title` | no  | `string` |  Title of the purchase |
 
-
-
 ## CSS
 
 **Button :**
@@ -104,7 +100,6 @@ for example change the black background to a white background :
     background: rgba(255, 255, 255, 0.3);
 }
 ```
-
 
 ## Errors Handling
 
@@ -144,33 +139,29 @@ new Pledg(button, {
 | `invalid_request_error` | When your settings are malformed, for example : invalid `merchandId`, invalid `amountCents`, ... |
 | `payment_refused` | Pledg decided to not process the payment (ex 3Ds refused) |
 
-
-
-
 ## The User Workflow
 
-### 1) Opening the Pledg payment funnel
+1) Opening the Pledg payment funnel
 
 Clicking on the Pledg payment button opens the iframe containing the payment funnel.
 
-### 2) Filling out the emails
+2) Filling out the emails
 
 The user fills his email and those of his friends.
 
-### 3) Pre-authorisation for the whole amount of the transaction
+3) Pre-authorisation for the whole amount of the transaction
 
 The user fills out his card details and Pledg pre-authorises (via Stripe) the total amount of the purchase.
 
 For security purposes, Pledg only stores a reference on the card in order to make the payment later. Pledg does not store the user's card details.
 
-### 4) Generating the eCard and sending emails
+4) Generating the eCard and sending emails
 
 An eCard is generated and it is credited with the total amount of the purchase according to the embedded parameters in the URL.
 
 Pledg sends a validation email to the user and invitation emails to his friends.
 
-### 5) Directly filling out the eCard details on the merchant’s website
-
+5) Directly filling out the eCard details on the merchant’s website
 
 In order to provide a liquid and safe UX, the details of the generated eCard are not visible for the end-user and are directly transferred to the merchant.
 
@@ -183,8 +174,6 @@ If successful, the function:
 If not :
 - the iframe closes and the merchant function handles the error.
 
-
-### 6) The merchant is paid
-
+6) The merchant is paid
 
 The end-used lands on the merchant's payment confirmation page without having to filling out the the payment form with the generated eCard details or validating the form. themselves.
